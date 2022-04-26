@@ -1,0 +1,3 @@
+{
+	"extends": "@cgiosy/env-base/tsconfig.base.json"
+}

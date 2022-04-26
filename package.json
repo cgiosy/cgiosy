@@ -1,0 +1,27 @@
+{
+	"name": "cgiosy",
+	"version": "0.0.0",
+	"private": true,
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev --parallel",
+		"format": "turbo run format"
+	},
+	"devDependencies": {
+		"turbo": "latest"
+	},
+	"pnpm": {
+		"overrides": {
+			"@storybook/source-loader": "^6.5.0-alpha.61"
+		}
+	},
+	"engines": {
+		"npm": ">=8.0.0",
+		"node": ">=16.0.0"
+	},
+	"packageManager": "pnpm@6.32.4"
+}

@@ -1,0 +1,11 @@
+{
+	"name": "@cgiosy/env-react",
+	"version": "0.0.0",
+	"license": "MIT",
+	"dependencies": {
+		"@cgiosy/env-base": "workspace:*"
+	},
+	"peerDependencies": {
+		"eslint-plugin-react": "^7.29.4"
+	}
+}

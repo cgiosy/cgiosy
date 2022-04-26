@@ -1,0 +1,11 @@
+{
+	"name": "@cgiosy/utils",
+	"version": "0.0.0",
+	"license": "MIT",
+	"scripts": {
+		"format": "eslint --fix ."
+	},
+	"devDependencies": {
+		"@cgiosy/env-base": "workspace:*"
+	}
+}
