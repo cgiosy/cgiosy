@@ -1,4 +1,4 @@
-import { styled } from "./index";
+import { styled } from "./css";
 
 const storiesRegexp = /(.*\/)?(.+?)\.stories\.tsx$/;
 
