@@ -91,8 +91,8 @@ const eslintrc = {
 			{
 				allowSeparatedGroups: true,
 				ignoreCase: false,
-				ignoreDeclarationSort: false,
-				ignoreMemberSort: false,
+				ignoreDeclarationSort: true,
+				ignoreMemberSort: true,
 				memberSyntaxSortOrder: ["single", "all", "multiple", "none"],
 			},
 		],
