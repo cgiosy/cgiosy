@@ -207,10 +207,6 @@ const eslintrc = {
 
 const _mergeTo = (src, dst) => {
 	if (typeof dst !== "object" || dst === null) return;
-	if (Array.isArray(dst)) {
-		if (Array.isArray(src)) dst.unshift(...src);
-		return;
-	}
 	for (const key of Object.keys(src)) {
 		const val = src[key];
 		if (key in dst) _mergeTo(val, dst[key]);
