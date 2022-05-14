@@ -22,16 +22,16 @@
 		"@mdx-js/react": "^2.1.1",
 		"@storybook/addon-essentials": "^6.5.0-beta.8",
 		"@storybook/addon-knobs": "^6.4.0",
-		"@storybook/builder-vite": "^0.1.33",
+		"@storybook/builder-webpack5": "^6.5.0-beta.8",
+		"@storybook/manager-webpack5": "^6.5.0-beta.8",
 		"@storybook/react": "^6.5.0-beta.8",
 		"@types/react": "^18.0.9",
 		"@types/react-dom": "^18.0.4",
 		"@typescript-eslint/eslint-plugin": "^5.23.0",
 		"@typescript-eslint/parser": "^5.23.0",
-		"@vitejs/plugin-react": "^2.0.0-alpha.0",
 		"eslint": "^8.15.0",
 		"eslint-plugin-react": "^7.29.4",
 		"typescript": "^4.6.4",
-		"vite": "^3.0.0-alpha.0"
+		"webpack": "^5.72.1"
 	}
 }

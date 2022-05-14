@@ -1,7 +1,30 @@
-module.exports = {
-	core: { builder: "@storybook/builder-vite" },
+const config = {
 	framework: "@storybook/react",
-	addons: ["@storybook/addon-essentials", "@storybook/addon-knobs"],
-	staticDirs: ["../public"],
-	stories: ["../components/**/*.stories.mdx", "../components/**/*.stories.@(jsx|tsx)"],
+	core: {
+		builder: { name: "webpack5" },
+		channelOptions: {
+			allowFunction: false,
+			maxDepth: 10,
+		},
+		disableTelemetry: true,
+	},
+	addons: [
+		"@storybook/addon-essentials",
+		"@storybook/addon-knobs",
+	],
+	stories: [
+		{
+			directory: "../components",
+			files: "*.stories.(ts|md)x",
+		},
+	],
+	features: {
+		postcss: false,
+		modernInlineRender: true,
+		storyStoreV7: !global.navigator?.userAgent?.match?.("jsdom"),
+		buildStoriesJson: true,
+		warnOnLegacyHierarchySeparator: false,
+	},
+	logLevel: "debug",
 };
+module.exports = config;
