@@ -14,8 +14,7 @@ const buttonCss = css({
 
 	cursor: "pointer",
 	userSelect: "none",
-	transitionProperty: "background, border-color",
-	transitionDuration: "0.15s",
+	transition: "background 0.1s linear, border-color 0.1s linear",
 
 	$$lightness: ([c, l0, l1, l2]) => ({
 		color: `rgba(${c})`,
@@ -29,16 +28,40 @@ const buttonCss = css({
 	"& > svg": {
 		width: "1.5em",
 		height: "1.5em",
-		margin: "0.125em 0.375em 0 -0.25em",
+		margin: "0 0.5em 0 -0.25em",
 		fill: "currentColor",
+		"& [opacity]": {
+			opacity: 0,
+			transition: "opacity 0.2s linear -0.1s",
+		},
 	},
+	"&.enabled > svg [opacity]": { opacity: 1 },
 
-	"&.filled": { lightness: ["$gray100", 40, 30, 20] },
-	"&.filled-tonal": { lightness: ["$gray0", 90, 80, 70] },
 	"&.outlined": {
 		border: "0.09375em solid rgb($gray50)",
 		padding: "0.5em 1.40625em",
 		_active: { borderColor: "rgb($accent40)" },
+	},
+
+	// Priority: icon < filled
+	"&.icon": {
+		color: "rgb($gray0)",
+		padding: "0.5em",
+
+		"& > svg": { margin: 0 },
+
+		"&.outlined": {
+			padding: "0.4375em",
+			border: "0.0625em solid rgb($accent15)",
+		},
+	},
+
+	"&.filled-tonal": { lightness: ["$gray0", 90, 80, 70] },
+	"&.filled": { lightness: ["$gray100", 40, 30, 20] },
+	"&&.enabled": {
+		color: "rgb($accent100)",
+		background: "rgb($accent40)",
+		borderColor: "rgb($accent40)",
 	},
 
 	"&.large": {
@@ -48,24 +71,13 @@ const buttonCss = css({
 		padding: `${9 / 17}em 1.5em`,
 	},
 
-	"&.icon": {
-		lightness: ["$accent40", "40, 0", "40, 0.2", "40, 0.3"],
-		padding: "0.5em",
-
-		"&.filled": { lightness: ["$gray100", 40, 30, 20] },
-		"&.filled-tonal": { lightness: ["$gray0", 90, 80, 70] },
-		"&.outlined": {
-			border: "0.0625em solid rgb($gray50)",
-			padding: "0.5em 1.40625em",
-			_active: { borderColor: "rgb($accent40)" },
-		},
-	},
-
-	"&[disabled]": {
+	"&&[disabled]": {
 		color: "rgb($gray0)",
-		background: "rgba($gray0, 0)",
-		"&.filled, &.filled-tonal": { background: "rgba($gray0, 0.25)" },
-		opacity: 0.25,
+		"&.filled, &.filled-tonal, &.enabled": {
+			background: "rgb($gray80)",
+			borderColor: "rgb($gray80)",
+		},
+		opacity: 0.375,
 		pointerEvents: "none",
 	},
 });
