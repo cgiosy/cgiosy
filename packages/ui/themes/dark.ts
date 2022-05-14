@@ -17,6 +17,7 @@ export default css({
 		$accent95: "0,7,31",
 	*/
 	// +10 bonus lightness
+	$accent10: "255,255,255",
 	$accent15: "233,241,255",
 	$accent20: "211,228,255",
 	$accent30: "166,200,255",
@@ -27,6 +28,7 @@ export default css({
 	$accent80: "0,62,153",
 	$accent90: "0,40,106",
 	$accent95: "0,30,83",
+	$accent100: "0,19,58",
 
 	$gray0: "255,255,255",
 	$gray5: "239,241,243",

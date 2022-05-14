@@ -1,6 +1,7 @@
 import { css } from "./global";
 
 export default css({
+	$accent0: "0,0,0",
 	$accent5: "0,7,31",
 	$accent10: "0,19,58",
 	$accent15: "0,30,83",
@@ -14,6 +15,7 @@ export default css({
 	$accent85: "189,214,255",
 	$accent90: "211,228,255",
 	$accent95: "233,241,255",
+	$accent100: "255,255,255",
 
 	$gray0: "0,0,0",
 	$gray5: "7,9,11",
