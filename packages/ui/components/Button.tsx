@@ -7,7 +7,7 @@ const buttonCss = css({
 	justifyContent: "center",
 	textDecoration: "none",
 	fontWeight: 500,
-	lineHeight: 1.5,
+	lineHeight: "content",
 	border: 0,
 	borderRadius: "9999em",
 	padding: "0.5em 1.5em",
@@ -39,7 +39,7 @@ const buttonCss = css({
 
 	"&.outlined": {
 		border: "0.09375em solid rgb($gray50)",
-		padding: "0.5em 1.40625em",
+		padding: "0.40625em 1.40625em",
 		_active: { borderColor: "rgb($accent40)" },
 	},
 
@@ -51,8 +51,8 @@ const buttonCss = css({
 		"& > svg": { margin: 0 },
 
 		"&.outlined": {
-			padding: "0.4375em",
 			border: "0.0625em solid rgb($accent15)",
+			padding: "0.4375em",
 		},
 	},
 
@@ -69,6 +69,10 @@ const buttonCss = css({
 		width: "100%",
 		fontSize: "1.0625em",
 		padding: `${9 / 17}em 1.5em`,
+		"&.outlined": {
+			border: `${1.5 / 17}em solid rgb($gray50)`,
+			padding: `${7.5 / 17}em ${24.5 / 17}em`,
+		},
 	},
 
 	"&&[disabled]": {
