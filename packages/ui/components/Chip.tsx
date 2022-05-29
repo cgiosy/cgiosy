@@ -27,8 +27,19 @@ const chipCss = css({
 		width: "$$18dp",
 		height: "$$18dp",
 		fill: "currentColor",
-		"&:first-child": { margin: "0 $$8dp 0 -$$3dp" },
-		"&:last-child": { margin: "0 -$$3dp 0 $$8dp" },
+		margin: "0 $$8dp 0 -$$3dp",
+
+		"&.clear": {
+			margin: "-$$4dp -$$10dp -$$4dp $$6dp",
+			width: "$$26dp",
+			height: "$$26dp",
+			padding: "$$4dp",
+			borderRadius: "50%",
+			transition: "background 0.1s linear",
+			_hover: { background: "rgba($gray40, 0.3)" },
+			_active: { background: "rgba($gray40, 0.4)" },
+		},
+
 		"& [opacity]": {
 			opacity: 0,
 			transition: "opacity 0.2s linear -0.1s",
