@@ -11,7 +11,7 @@ const buttonCss = css({
 	fontWeight: 500,
 	border: 0,
 	borderRadius: "9999em",
-	lineHeight: "$$24dp",
+	lineHeight: "$$20dp",
 	padding: "$$8dp $$24dp",
 
 	cursor: "pointer",
@@ -28,10 +28,11 @@ const buttonCss = css({
 	lightness: ["$accent40", "40, 0", "40, 0.2", "40, 0.3"],
 
 	"& > svg": {
-		width: "$$24dp",
-		height: "$$24dp",
-		margin: "0 $$12dp 0 -$$4dp",
+		width: "$$20dp",
+		height: "$$20dp",
 		fill: "currentColor",
+		margin: "0 $$8dp 0 -$$2dp",
+
 		"& [opacity]": {
 			opacity: 0,
 			transition: "opacity 0.2s linear -0.1s",
@@ -64,15 +65,16 @@ const buttonCss = css({
 	"&.large": {
 		display: "flex",
 		width: "100%",
-		fontSize: "$$17dp",
-		padding: `$$9dp $$27dp`,
-		"&.outlined": { padding: `$$8dp $$26dp` },
+		padding: "$$10dp $$30dp",
+
+		"&.outlined": { padding: "$$9dp $$29dp" },
 	},
 
 	"&[disabled]": {
 		opacity: 0.375,
 		pointerEvents: "none",
 		color: "rgb($gray0)",
+
 		"&.filled, &.filled-tonal, &.enabled": {
 			background: "rgb($gray80)",
 			borderColor: "rgb($gray80)",
