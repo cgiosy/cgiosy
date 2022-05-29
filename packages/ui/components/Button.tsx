@@ -2,15 +2,17 @@ import { css } from "../themes";
 import { styled } from "../utils";
 
 const buttonCss = css({
+	dp: 16,
+
 	display: "inline-flex",
 	alignItems: "center",
 	justifyContent: "center",
 	textDecoration: "none",
 	fontWeight: 500,
-	lineHeight: "content",
 	border: 0,
 	borderRadius: "9999em",
-	padding: "0.5em 1.5em",
+	lineHeight: "$$24dp",
+	padding: "$$8dp $$24dp",
 
 	cursor: "pointer",
 	userSelect: "none",
@@ -26,9 +28,9 @@ const buttonCss = css({
 	lightness: ["$accent40", "40, 0", "40, 0.2", "40, 0.3"],
 
 	"& > svg": {
-		width: "1.5em",
-		height: "1.5em",
-		margin: "0 0.5em 0 -0.25em",
+		width: "$$24dp",
+		height: "$$24dp",
+		margin: "0 $$12dp 0 -$$4dp",
 		fill: "currentColor",
 		"& [opacity]": {
 			opacity: 0,
@@ -38,27 +40,22 @@ const buttonCss = css({
 	"&.enabled > svg [opacity]": { opacity: 1 },
 
 	"&.outlined": {
-		border: "0.09375em solid rgb($gray50)",
-		padding: "0.40625em 1.40625em",
+		border: "$$1dp solid rgb($gray40)",
+		padding: "$$7dp $$23dp",
 		_active: { borderColor: "rgb($accent40)" },
 	},
 
 	// Priority: icon < filled
 	"&.icon": {
+		padding: "$$12dp",
 		color: "rgb($gray0)",
-		padding: "0.5em",
-
 		"& > svg": { margin: 0 },
-
-		"&.outlined": {
-			border: "0.0625em solid rgb($accent15)",
-			padding: "0.4375em",
-		},
+		"&.outlined": { padding: "$$11dp" },
 	},
 
 	"&.filled-tonal": { lightness: ["$gray0", 90, 80, 70] },
 	"&.filled": { lightness: ["$gray100", 40, 30, 20] },
-	"&&.enabled": {
+	"&.enabled": {
 		color: "rgb($accent100)",
 		background: "rgb($accent40)",
 		borderColor: "rgb($accent40)",
@@ -67,22 +64,19 @@ const buttonCss = css({
 	"&.large": {
 		display: "flex",
 		width: "100%",
-		fontSize: "1.0625em",
-		padding: `${9 / 17}em 1.5em`,
-		"&.outlined": {
-			border: `${1.5 / 17}em solid rgb($gray50)`,
-			padding: `${7.5 / 17}em ${24.5 / 17}em`,
-		},
+		fontSize: "$$17dp",
+		padding: `$$9dp $$27dp`,
+		"&.outlined": { padding: `$$8dp $$26dp` },
 	},
 
-	"&&[disabled]": {
+	"&[disabled]": {
+		opacity: 0.375,
+		pointerEvents: "none",
 		color: "rgb($gray0)",
 		"&.filled, &.filled-tonal, &.enabled": {
 			background: "rgb($gray80)",
 			borderColor: "rgb($gray80)",
 		},
-		opacity: 0.375,
-		pointerEvents: "none",
 	},
 });
 

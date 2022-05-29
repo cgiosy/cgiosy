@@ -10,7 +10,7 @@ const fontSize = () => number("Font size", 16);
 
 const large = (props: PlainObject) => ({ className: cls([props.className, "large"]) });
 
-const gap = css({ "&, & > *": { margin: "1em" } });
+const gap = css({ "&, & > *": { margin: "$$16dp" } });
 
 const tester = (C: Component<{ className: string; }>) => {
 	const Tester = () => (

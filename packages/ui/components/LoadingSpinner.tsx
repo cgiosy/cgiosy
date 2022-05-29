@@ -1,24 +1,26 @@
 import { css } from "../themes";
 
 const loadingSpinnerCss = css({
-	width: "2em",
-	height: "2em",
-	animation: "spin linear 0.4s infinite",
+	width: "$$32dp",
+	height: "$$32dp",
 	stroke: "rgb($accent50)",
 
 	"& > circle": {
-		r: "0.75em",
-		cx: "1em",
-		cy: "1em",
+		r: "$$12dp",
+		cx: "$$16dp",
+		cy: "$$16dp",
 		fill: "none",
-		strokeDasharray: "6em",
-		strokeDashoffset: "2.5em",
-		strokeWidth: "0.1875em",
-	},
+		strokeDasharray: "$$96dp",
+		strokeDashoffset: "$$40dp",
+		strokeWidth: "$$3dp",
 
-	"@keyframes spin": {
-		"0%": { transform: "rotate(360deg)" },
-		"100%": { transform: "rotate(0)" },
+		animation: "spin linear 0.4s infinite",
+		transformOrigin: "center",
+
+		"@keyframes spin": {
+			"0%": { transform: "rotate(360deg)" },
+			"100%": { transform: "rotate(0)" },
+		},
 	},
 });
 

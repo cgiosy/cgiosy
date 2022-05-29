@@ -8,19 +8,15 @@ export const { $css, css } = $$css({
 	$$_hover: (value) => ({ "&:hover, &:active, &:focus": value }),
 	$$_active: (value) => ({ "&:active, &:focus": value }),
 
-	$$userSelect: (value) => ({
-		WebkitUserSelect: value,
-		userSelect: value,
+	$$dp: (value) => ({
+		fontSize: `${value / 16}rem`,
+		$$: (key) => /^[\d_]+dp$/.test(key) && `${Number(key.slice(0, -2).replace("_", ".")) / 16}rem`,
 	}),
 
-	$$lineHeight: (lh) => ({
-		lineHeight: (
-			lh === "heading"
-				? 1.2
-				: lh === "content"
-					? 1.5
-					: lh
-		),
+	$$userSelect: (value) => ({
+		WebkitUserDrag: value,
+		WebkitUserSelect: value,
+		userSelect: value,
 	}),
 
 	$mono: fontNamesToStr([
@@ -49,30 +45,27 @@ export const { $css, css } = $$css({
 		"sans-serif",
 	]),
 
-	$lowEmphasis: "rgba($gray0, 0.375)",
-	$mediumEmphasis: "rgba($gray0, 0.625)",
-	$highEmphasis: "rgba($gray0, 0.875)",
+	dp: 16,
+	fontFamily: "$sans",
+	minHeight: "100vh",
+	margin: 0,
+	lineHeight: 1.5,
+	textRendering: "optimizeLegibility",
 
 	// https://github.com/hankchizljaw/modern-css-reset
 	boxSizing: "border-box",
 	"*, *:before, *:after": { boxSizing: "inherit" },
 
-	"html:focus-within": { scrollBehavior: "smooth" },
-	"body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd": { margin: 0 },
-	"ul[role='list'], ol[role='list']": { listStyle: "none" },
+	"&:focus-within": { scrollBehavior: "smooth" },
+	"& h1, & h2, & h3, & h4, & h5, & h6, & p, & figure, & blockquote, & dl, & dd": { margin: 0 },
+	"& ul[role='list'], & ol[role='list']": { listStyle: "none" },
 
-	" body": {
-		minHeight: "100vh",
-		textRendering: "optimizeLegibility",
-		lineHeight: "$contentHeight",
-		fontFamily: "$sans",
-	},
-	"a:not([class])": { textDecorationSkipInk: "auto" },
+	"& a:not([class])": { textDecorationSkipInk: "auto" },
 
-	"input, button, textarea, select": { font: "inherit" },
+	"& input, & button, & textarea, & select": { font: "inherit" },
 
 	"@media (prefers-reduced-motion: reduce)": {
-		"*, *:before, *:after": {
+		"& *, & *:before, & *:after": {
 			animationDuration: ".01ms !important",
 			animationIterationCount: "1 !important",
 			transitionDuration: ".01ms !important",
@@ -81,17 +74,17 @@ export const { $css, css } = $$css({
 	},
 
 	// https://www.zachleat.com/web/fluid-images/
-	"img, picture": {
+	"& img": {
 		display: "block",
 		maxWidth: "100%",
 	},
-	"img[width][height]": { height: "auto" },
-	"img[src$='.svg']": {
+	"& img[width][height]": { height: "auto" },
+	"& img[src$='.svg']": {
 		width: "100%",
 		height: "auto",
 		maxWidth: "none",
 	},
 
 	// https://twitter.com/hankchizljaw/status/1352270504577675265
-	"[id]": { scrollMarginTop: "2ex" },
-});
+	"& [id]": { scrollMarginTop: "2ex" },
+}, { root: "body" });
