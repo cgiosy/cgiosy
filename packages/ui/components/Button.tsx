@@ -2,7 +2,7 @@ import { css } from "../themes";
 import { styled } from "../utils";
 
 const buttonCss = css({
-	dp: 16,
+	fontSize: "$$16dp",
 
 	display: "inline-flex",
 	alignItems: "center",

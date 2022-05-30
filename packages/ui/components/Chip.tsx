@@ -2,7 +2,7 @@ import { css } from "../themes";
 import { styled } from "../utils";
 
 const chipCss = css({
-	dp: 14,
+	fontSize: "$$14dp",
 
 	display: "inline-flex",
 	alignItems: "center",

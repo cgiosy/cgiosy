@@ -8,10 +8,7 @@ export const { $css, css } = $$css({
 	$$_hover: (value) => ({ "&:hover, &:active, &:focus": value }),
 	$$_active: (value) => ({ "&:active, &:focus": value }),
 
-	$$dp: (value) => ({
-		fontSize: `${value / 16}rem`,
-		$$: (key) => /^[\d_]+dp$/.test(key) && `${Number(key.slice(0, -2).replace("_", ".")) / 16}rem`,
-	}),
+	$$: (key) => /^[\d_]+dp$/.test(key) && `${Number(key.slice(0, -2).replace("_", ".")) / 16}rem`,
 
 	$$userSelect: (value) => ({
 		WebkitUserDrag: value,
@@ -45,7 +42,6 @@ export const { $css, css } = $$css({
 		"sans-serif",
 	]),
 
-	dp: 16,
 	fontFamily: "$sans",
 	minHeight: "100vh",
 	margin: 0,
