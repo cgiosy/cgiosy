@@ -29,7 +29,7 @@ const chipCss = css({
 		fill: "currentColor",
 		margin: "0 $$8dp 0 -$$3dp",
 
-		"&.clear": {
+		"&.trailing": {
 			margin: "-$$4dp -$$10dp -$$4dp $$6dp",
 			width: "$$26dp",
 			height: "$$26dp",
