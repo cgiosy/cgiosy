@@ -48,10 +48,10 @@ const buttonCss = css({
 
 	// Priority: icon < filled
 	"&.icon": {
-		padding: "$$12dp",
+		padding: "$$10dp",
 		color: "rgb($gray0)",
 		"& > svg": { margin: 0 },
-		"&.outlined": { padding: "$$11dp" },
+		"&.outlined": { padding: "$$9dp" },
 	},
 
 	"&.filled-tonal": { lightness: ["$gray0", 90, 80, 70] },
