@@ -1,4 +1,4 @@
-import { withKnobs, number, text } from "@storybook/addon-knobs";
+import { withKnobs, text } from "@storybook/addon-knobs";
 import { css } from "../themes";
 import { Component, hoc } from "../utils";
 
@@ -6,7 +6,6 @@ import Chip, { ChipLink, IconChip } from "./Chip";
 import ThemeTester from "./ThemeTester";
 
 const label = () => text("Label", "Thumb Up");
-const fontSize = () => number("Font size", 16);
 
 const gap = css({ "&, & > *": { margin: "1em" } });
 
@@ -15,7 +14,7 @@ const tester = (C: Component<unknown>) => {
 		<ThemeTester>
 			{
 				["", "enabled"].map((type) => (
-					<div key={type} className={gap} style={{ fontSize: `${fontSize()}px` }}>
+					<div key={type} className={gap}>
 						<C className={type} />
 						<C className={type} disabled={true} />
 					</div>
@@ -46,6 +45,9 @@ export const IconChips = tester(IconChipTester);
 
 export default {
 	component: Chip,
-	subcomponents: { ChipLink },
+	subcomponents: {
+		ChipLink,
+		IconChip,
+	},
 	decorators: [withKnobs],
 };
