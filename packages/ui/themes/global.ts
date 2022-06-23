@@ -42,6 +42,8 @@ export const { $css, css } = $$css({
 		"sans-serif",
 	]),
 
+	WebkitTapHighlightColor: "transparent",
+
 	fontFamily: "$sans",
 	minHeight: "100vh",
 	margin: 0,
