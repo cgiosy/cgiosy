@@ -33,10 +33,12 @@ export default css({
 	$gray95: "239,241,243",
 	$gray100: "255,255,255",
 
+	$background: "$gray100",
+
 	$lowEmphasis: "rgba($gray0, 0.375)",
 	$mediumEmphasis: "rgba($gray0, 0.625)",
 	$highEmphasis: "rgba($gray0, 0.875)",
 
 	color: "$highEmphasis",
-	background: "rgb($gray100)",
+	background: "rgb($background)",
 });
