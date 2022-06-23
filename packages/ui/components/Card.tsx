@@ -1,7 +1,7 @@
 import { css } from "../themes";
 import { styled } from "../utils";
 
-const chipCss = css({
+const cardCss = css({
 	fontSize: "$$16dp",
 
 	display: "inline-flex",
@@ -39,6 +39,6 @@ const chipCss = css({
 	},
 });
 
-const Card = styled("article", chipCss);
+const Card = styled("article", cardCss);
 
 export default Card;
