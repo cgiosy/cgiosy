@@ -6,31 +6,31 @@ const cardCss = css({
 
 	display: "inline-flex",
 	flexDirection: "column",
-	background: "rgba($gray40, 0)",
-	border: "$$1dp solid rgb($gray50)",
+	background: "rgba($gray100, 0.5)",
+	border: "$$1dp solid $lowEmphasis",
 	borderRadius: "$$12dp",
 	padding: "$$16dp",
 	transition: "border 0.1s linear, background 0.1s linear, box-shadow 0.1s linear, transform 0.1s linear",
 
 	_hover: {
-		background: "rgba($gray40, 0.1)",
-		borderColor: "rgb($gray40)",
-		boxShadow: "0 $$1dp $$6dp 0 rgba($gray0, 0.3)",
+		background: "rgba($gray85, 0.625)",
+		borderColor: "$mediumEmphasis",
+		boxShadow: "0 $$1dp $$6dp 0 rgba($gray15, 0.375)",
 	},
 	_active: {
-		background: "rgba($gray40, 0.2)",
-		borderColor: "rgb($gray30)",
-		boxShadow: "0 $$2dp $$12dp rgba($gray0, 0.3)",
+		background: "rgba($gray70, 0.625)",
+		borderColor: "$highEmphasis",
+		boxShadow: "0 $$2dp $$12dp rgba($gray15, 0.375)",
 	},
 
 	"&.filled": {
-		background: "rgba($accent40, 0.1)",
+		background: "rgba($accent80, 0.625)",
 		border: "none",
 		_hover: {
-			background: "rgba($accent40, 0.2)",
+			background: "rgba($accent70, 0.75)",
 			boxShadow: "none",
 		},
-		_active: { background: "rgba($accent40, 0.3)" },
+		_active: { background: "rgba($accent60, 0.75)" },
 	},
 
 	"&.pressable": {
