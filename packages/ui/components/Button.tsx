@@ -1,5 +1,11 @@
 import { css } from "../themes";
-import { styled } from "../utils";
+import { hoc, styled } from "../utils";
+
+type ButtonProps = {
+	[K: string]: unknown,
+	icon?: JSX.Element,
+	children?: JSX.Element,
+};
 
 const buttonCss = css({
 	fontSize: "$$16dp",
@@ -82,9 +88,11 @@ const buttonCss = css({
 	},
 });
 
-const Button = styled("button", buttonCss);
+const useIcon = ({ icon, children }: ButtonProps) => ({ children: <>{icon}{children}</> });
 
-export const ButtonLink = styled("a", buttonCss);
+const Button = hoc(styled("button", buttonCss), useIcon);
+
+export const ButtonLink = hoc(styled("a", buttonCss), useIcon);
 
 export const IconButton = styled(Button, "icon");
 
