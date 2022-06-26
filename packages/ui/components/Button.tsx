@@ -12,7 +12,7 @@ const buttonCss = css({
 	border: 0,
 	borderRadius: "9999em",
 	lineHeight: "$$20dp",
-	padding: "$$8dp $$24dp",
+	padding: "$$9dp $$24dp",
 
 	cursor: "pointer",
 	userSelect: "none",
@@ -25,7 +25,7 @@ const buttonCss = css({
 		_active: { background: `rgba($accent${l2})` },
 	}),
 
-	lightness: ["$accent40", "40, 0", "40, 0.2", "40, 0.3"],
+	lightness: ["$accent40", "45, 0", "45, 0.25", "45, 0.375"],
 
 	"& > svg": {
 		width: "$$20dp",
@@ -41,20 +41,20 @@ const buttonCss = css({
 	"&.enabled > svg [opacity]": { opacity: 1 },
 
 	"&.outlined": {
-		border: "$$1dp solid rgb($gray40)",
-		padding: "$$7dp $$23dp",
+		border: "$$1dp solid $lowEmphasis",
+		padding: "$$8dp $$23dp",
 		_active: { borderColor: "rgb($accent40)" },
 	},
 
 	// Priority: icon < filled
 	"&.icon": {
 		padding: "$$10dp",
-		color: "rgb($gray0)",
+		color: "rgb($gray15)",
 		"& > svg": { margin: 0 },
 		"&.outlined": { padding: "$$9dp" },
 	},
 
-	"&.filled-tonal": { lightness: ["$gray0", 90, 80, 70] },
+	"&.filled-tonal": { lightness: ["$gray15", "80, 0.625", "70, 0.75", "60, 0.75"] },
 	"&.filled": { lightness: ["$gray100", 40, 30, 20] },
 	"&.enabled": {
 		color: "rgb($accent100)",
@@ -71,13 +71,13 @@ const buttonCss = css({
 	},
 
 	"&[disabled]": {
-		opacity: 0.375,
+		opacity: 0.4375,
 		pointerEvents: "none",
-		color: "rgb($gray0)",
+		color: "rgb($gray15)",
 
 		"&.filled, &.filled-tonal, &.enabled": {
-			background: "rgb($gray80)",
-			borderColor: "rgb($gray80)",
+			background: "rgba($gray45, 0.375)",
+			borderColor: "rgba($gray45, 0.375)",
 		},
 	},
 });
