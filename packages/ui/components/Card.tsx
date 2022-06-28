@@ -32,11 +32,6 @@ const cardCss = css({
 		},
 		_active: { background: "rgba($accent70, 1)" },
 	},
-
-	"&.pressable": {
-		_hover: { transform: "translateY(-$$1dp)" },
-		_active: { transform: "translateY($$1dp)" },
-	},
 });
 
 const Card = styled("article", cardCss);

@@ -60,7 +60,11 @@ export const { $css, css } = $$css({
 
 	"& a:not([class])": { textDecorationSkipInk: "auto" },
 
-	"& input, & button, & textarea, & select": { font: "inherit" },
+	"& input, & button, & textarea, & select": {
+		color: "inherit",
+		background: "transparent",
+		font: "inherit",
+	},
 
 	"@media (prefers-reduced-motion: reduce)": {
 		"& *, & *:before, & *:after": {
@@ -85,4 +89,11 @@ export const { $css, css } = $$css({
 
 	// https://twitter.com/hankchizljaw/status/1352270504577675265
 	"& [id]": { scrollMarginTop: "2ex" },
+
+
+	"& .pressable": {
+		cursor: "pointer",
+		_hover: { transform: "translateY(-$$1dp)" },
+		_active: { transform: "translateY($$1_5dp)" },
+	},
 }, { root: "body" });
