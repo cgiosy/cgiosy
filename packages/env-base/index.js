@@ -157,7 +157,7 @@ const eslintrc = {
 			},
 		],
 		"max-statements-per-line": ["error", { max: 1 }],
-		"multiline-ternary": ["error", "always-multiline"],
+		// "multiline-ternary": ["error", "always-multiline"],
 		"new-parens": ["error", "always"],
 		"newline-per-chained-call": ["error", { ignoreChainWithDepth: 2 }],
 		/*
