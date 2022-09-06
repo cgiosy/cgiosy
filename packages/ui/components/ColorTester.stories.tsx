@@ -1,5 +1,6 @@
+import { iota } from "@cgiosy/utils/array";
 import { withKnobs } from "@storybook/addon-knobs";
-import { css } from "../themes";
+import { colorVariations, css } from "../themes";
 
 import ThemeTester from "./ThemeTester";
 
@@ -20,8 +21,8 @@ const colorsCss = css({
 
 const Color = ({ color, level }: { color: string, level: number }) => (
 	<div className={colorCss} style={{
-		color: `rgb(var(--gray${level > 50 ? 0 : 100}))`,
-		background: `rgb(var(--${color}))`,
+		color: `rgba(var(--gray${level > colorVariations / 2 ? 0 : 16}))`,
+		background: `rgba(var(--${color}))`,
 	}}>{level}</div>
 );
 
@@ -40,8 +41,9 @@ const colorTester = (colors: string[]) => {
 	return Tester;
 };
 
-const accentColors = [10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100].map((lightness) => `accent${lightness}`);
-const grayColors = [0, 5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 85, 90, 95, 100].map((lightness) => `gray${lightness}`);
+const levels = iota(colorVariations + 1);
+const accentColors = levels.map((lightness) => `accent${lightness}`);
+const grayColors = levels.map((lightness) => `gray${lightness}`);
 
 export const Accent = colorTester(accentColors);
 export const Gray = colorTester(grayColors);

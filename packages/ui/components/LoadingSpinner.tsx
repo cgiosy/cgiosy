@@ -1,9 +1,8 @@
 import { css } from "../themes";
 
 const loadingSpinnerCss = css({
-	width: "$$32dp",
-	height: "$$32dp",
-	stroke: "rgb($accent50)",
+	square: "$$32dp",
+	stroke: "rgba($accent7)",
 
 	"& > circle": {
 		r: "$$12dp",

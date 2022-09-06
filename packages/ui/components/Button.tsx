@@ -8,6 +8,18 @@ type ButtonProps = {
 };
 
 const buttonCss = css({
+	$$lightness: ([c, l0, l1, l2]) => ({
+		color: `rgba(${c})`,
+		background: `rgba(${l0})`,
+		_hover: { backgroundColor: `rgba(${l1})` },
+		_active: { backgroundColor: `rgba(${l2})` },
+	}),
+
+	$$padding: (value) => ({
+		padding: value,
+		"&.outlined": { padding: value.replace(/\d+/g, (n: string) => Number(n) - 1) },
+	}),
+
 	fontSize: "$$16dp",
 
 	display: "inline-flex",
@@ -22,20 +34,11 @@ const buttonCss = css({
 
 	cursor: "pointer",
 	userSelect: "none",
-	transition: "background 0.1s linear, border-color 0.1s linear",
-
-	$$lightness: ([c, l0, l1, l2]) => ({
-		color: `rgba(${c})`,
-		background: `rgba($accent${l0})`,
-		_hover: { background: `rgba($accent${l1})` },
-		_active: { background: `rgba($accent${l2})` },
-	}),
-
-	lightness: ["$accent40", "45, 0", "45, 0.25", "45, 0.375"],
+	transitions: [100, ["background-color", "border-color", "transform"]],
+	lightness: ["$accent6", "$background, 0.75", "$accent13", "$accent12"],
 
 	"& > svg": {
-		width: "$$20dp",
-		height: "$$20dp",
+		square: "$$20dp",
 		fill: "currentColor",
 		margin: "0 $$8dp 0 -$$2dp",
 
@@ -48,42 +51,37 @@ const buttonCss = css({
 
 	"&.outlined": {
 		border: "$$1dp solid $lowEmphasis",
-		padding: "$$8dp $$23dp",
-		_active: { borderColor: "rgb($accent40)" },
+		_active: { borderColor: "rgba($accent7)" },
 	},
 
 	// Priority: icon < filled
 	"&.icon": {
 		padding: "$$10dp",
-		color: "rgb($gray15)",
+		color: "rgba($gray3)",
 		"& > svg": { margin: 0 },
-		"&.outlined": { padding: "$$9dp" },
 	},
 
-	"&.filled-tonal": { lightness: ["$gray15", "80, 0.625", "70, 0.75", "60, 0.75"] },
-	"&.filled": { lightness: ["$gray100", 40, 30, 20] },
+	"&.filled-tonal": { lightness: ["$gray3", "$accent13, 0.75", "$accent12", "$accent11"] },
+	"&.filled": { lightness: ["$gray16", "$accent7", "$accent5", "$accent4"] },
 	"&.enabled": {
-		color: "rgb($accent100)",
-		background: "rgb($accent40)",
-		borderColor: "rgb($accent40)",
+		color: "rgba($accent16)",
+		background: "rgba($accent7)",
+		borderColor: "rgba($accent7)",
 	},
 
 	"&.large": {
 		display: "flex",
 		width: "100%",
 		padding: "$$10dp $$30dp",
-
-		"&.outlined": { padding: "$$9dp $$29dp" },
 	},
 
 	"&[disabled]": {
-		opacity: 0.4375,
 		pointerEvents: "none",
-		color: "rgb($gray15)",
+		color: "rgba($gray10)",
 
 		"&.filled, &.filled-tonal, &.enabled": {
-			background: "rgba($gray45, 0.375)",
-			borderColor: "rgba($gray45, 0.375)",
+			background: "rgba($gray14, 0.75)",
+			borderColor: "rgba($gray14, 0.75)",
 		},
 	},
 });

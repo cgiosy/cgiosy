@@ -2,6 +2,12 @@ import { css } from "../themes";
 import { styled } from "../utils";
 
 const chipCss = css({
+	$$lightness: ([l0, l1, l2]) => ({
+		background: `rgba(${l0})`,
+		_hover: { background: `rgba(${l1})` },
+		_active: { background: `rgba(${l2})` },
+	}),
+
 	fontSize: "$$14dp",
 
 	display: "inline-flex",
@@ -10,7 +16,7 @@ const chipCss = css({
 	textDecoration: "none",
 	fontWeight: 500,
 	lineHeight: "$$18dp",
-	border: "$$1dp solid rgb($gray40)",
+	border: "$$1dp solid $lowEmphasis",
 	borderRadius: "$$9dp",
 	padding: "$$6dp $$15dp",
 
@@ -19,25 +25,20 @@ const chipCss = css({
 	transition: "background 0.1s linear, border-color 0.1s linear",
 
 	color: "$highEmphasis",
-	background: "rgba($gray40, 0)",
-	_hover: { background: "rgba($gray40, 0.2)" },
-	_active: { background: "rgba($gray40, 0.3)" },
+	lightness: ["$background, 0.75", "$gray13", "$gray12"],
 
 	"& > svg": {
-		width: "$$18dp",
-		height: "$$18dp",
+		square: "$$18dp",
 		fill: "currentColor",
 		margin: "0 $$8dp 0 -$$3dp",
 
 		"&.trailing": {
 			margin: "-$$4dp -$$10dp -$$4dp $$6dp",
-			width: "$$26dp",
-			height: "$$26dp",
+			square: "$$26dp",
 			padding: "$$4dp",
 			borderRadius: "50%",
-			transition: "background 0.1s linear",
-			_hover: { background: "rgba($gray40, 0.3)" },
-			_active: { background: "rgba($gray40, 0.4)" },
+			transitions: [100, ["background"]],
+			lightness: ["$color, 0", "$color, 0.25", "$color, 0.375"],
 		},
 
 		"& [opacity]": {
@@ -54,19 +55,17 @@ const chipCss = css({
 	},
 
 	"&.enabled": {
-		background: "rgba($accent40, 0.3)",
 		borderColor: "transparent",
-		_hover: { background: "rgba($accent40, 0.4)" },
-		_active: { background: "rgba($accent40, 0.5)" },
+		lightness: ["$accent13, 0.75", "$accent12", "$accent11"],
 	},
 
 	"&[disabled]": {
-		opacity: 0.375,
 		pointerEvents: "none",
-		color: "rgb($gray0)",
-		"&.filled, &.filled-tonal, &.enabled": {
-			background: "rgb($gray80)",
-			borderColor: "rgb($gray80)",
+		color: "rgba($gray10)",
+
+		"&.enabled": {
+			background: "rgba($gray14, 0.75)",
+			borderColor: "rgba($gray14, 0.75)",
 		},
 	},
 });

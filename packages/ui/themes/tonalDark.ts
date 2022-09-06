@@ -1,5 +1,5 @@
 import { iota } from "@cgiosy/utils/array";
-import { css, defineColors, calcAccentColor, calcGrayColor, calcErrorColor, colorVariations } from "./global";
+import { css, defineColors, calcAccentColor, calcTonalGrayColor, calcErrorColor, colorVariations } from "./global";
 
 const darkBonus = 6.25;
 
@@ -13,7 +13,10 @@ export default css({
 	...defineColors({
 		prefix: "gray",
 		steps: iota(colorVariations + 1),
-		hsl: (step: number) => calcGrayColor(100 + darkBonus * 2 - step, step - darkBonus * 2),
+		hsl: (step: number) => calcTonalGrayColor(
+			100 + darkBonus * 2 - step,
+			step - darkBonus * 2,
+		),
 	}),
 
 	...defineColors({

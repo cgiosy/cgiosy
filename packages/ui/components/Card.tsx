@@ -6,31 +6,31 @@ const cardCss = css({
 
 	display: "inline-flex",
 	flexDirection: "column",
-	background: "rgba($gray100, 0.875)",
+	background: "rgba($gray16, 0.875)",
 	border: "$$1dp solid $lowEmphasis",
 	borderRadius: "$$12dp",
 	padding: "$$16dp",
-	transition: "border 0.1s linear, background 0.1s linear, box-shadow 0.1s linear, transform 0.1s linear",
+	transitions: [100, ["border", "background", "box-shadow", "transform"]],
 
 	_hover: {
-		background: "rgba($gray90, 1)",
+		background: "rgba($gray15)",
 		borderColor: "$mediumEmphasis",
-		boxShadow: "0 $$1dp $$6dp 0 rgba($gray15, 0.375)",
+		boxShadow: "0 $$1dp $$5dp 0 rgba($gray4, 0.375)",
 	},
 	_active: {
-		background: "rgba($gray80, 1)",
+		background: "rgba($gray14)",
 		borderColor: "$highEmphasis",
-		boxShadow: "0 $$2dp $$12dp rgba($gray15, 0.375)",
+		boxShadow: "0 $$2dp $$10dp rgba($gray4, 0.375)",
 	},
 
 	"&.filled": {
-		background: "rgba($accent85, 0.875)",
+		background: "rgba($accent14, 0.875)",
 		border: "none",
 		_hover: {
-			background: "rgba($accent80, 1)",
+			background: "rgba($accent13)",
 			boxShadow: "none",
 		},
-		_active: { background: "rgba($accent70, 1)" },
+		_active: { background: "rgba($accent12)" },
 	},
 });
 
