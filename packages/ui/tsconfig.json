@@ -1,7 +1,4 @@
 {
 	"extends": "@cgiosy/env-react/tsconfig.base.json",
-	"compilerOptions": {
-		"types": ["vite/client"]
-	},
 	"include": [".", "**/*"]
 }
