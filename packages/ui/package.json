@@ -12,7 +12,7 @@
 		"storybook": "start-storybook -p 9001"
 	},
 	"dependencies": {
-		"ddcss": "^0.5.2",
+		"ddcss": "^0.6.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},

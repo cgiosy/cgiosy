@@ -34,7 +34,7 @@ importers:
       '@types/react-dom': ^18.0.6
       '@typescript-eslint/eslint-plugin': ^5.36.2
       '@typescript-eslint/parser': ^5.36.2
-      ddcss: ^0.5.2
+      ddcss: ^0.6.0
       eslint: ^8.23.0
       eslint-plugin-react: ^7.31.7
       react: ^18.2.0
@@ -42,7 +42,7 @@ importers:
       typescript: ^4.8.2
       webpack: ^5.74.0
     dependencies:
-      ddcss: 0.5.2
+      ddcss: 0.6.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
@@ -6286,8 +6286,8 @@ packages:
     resolution: {integrity: sha512-NJGVKPS81XejHcLhaLJS7plab0fK3slPh11mESeeDq2W4ZI5kUKK/LRRdVDvjJseojbPB7ZwjnyOybg3Igea/A==}
     dev: true
 
-  /ddcss/0.5.2:
-    resolution: {integrity: sha512-ctcD/r6bkrbmJPmFqVJIeitESg2iU4uglji+kXutyI15wiL+LoW1JtJjjj07o5AHUQoDgzuLWDb5nIpmGPTjbw==}
+  /ddcss/0.6.0:
+    resolution: {integrity: sha512-jTlfcxlnAqjQUVES8byKIs6zhk7cyU1udGN0zvTon09npUy1ndOKnVNZn9mCmmVw3ampRsjJpLd47j+WWAvmLw==}
     dependencies:
       xxh32: 1.4.0
     dev: false
