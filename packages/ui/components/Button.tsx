@@ -8,8 +8,7 @@ type ButtonProps = {
 };
 
 const buttonCss = css({
-	$$lightness: ([c, l0, l1, l2]) => ({
-		color: `rgba(${c})`,
+	$$backgrounds: ([l0, l1, l2]) => ({
 		background: `rgba(${l0})`,
 		_hover: { backgroundColor: `rgba(${l1})` },
 		_active: { backgroundColor: `rgba(${l2})` },
@@ -32,10 +31,11 @@ const buttonCss = css({
 	lineHeight: "$$20dp",
 	padding: "$$9dp $$24dp",
 
+	color: "rgba($accent6)",
+	backgrounds: ["$background, 0.75", "$accent13", "$accent12"],
 	cursor: "pointer",
 	userSelect: "none",
-	transitions: [100, ["background-color", "border-color", "transform"]],
-	lightness: ["$accent6", "$background, 0.75", "$accent13", "$accent12"],
+	transitions: [100, ["color", "background-color", "border-color", "transform"]],
 
 	"& > svg": {
 		square: "$$20dp",
@@ -49,24 +49,29 @@ const buttonCss = css({
 	},
 	"&.enabled > svg [opacity]": { opacity: 1 },
 
-	"&.outlined": {
-		border: "$$1dp solid $lowEmphasis",
-		_active: { borderColor: "rgba($accent7)" },
-	},
-
-	// Priority: icon < filled
 	"&.icon": {
 		padding: "$$10dp",
 		color: "rgba($gray3)",
 		"& > svg": { margin: 0 },
 	},
 
-	"&.filled-tonal": { lightness: ["$gray3", "$accent13, 0.75", "$accent12", "$accent11"] },
-	"&.filled": { lightness: ["$gray16", "$accent7", "$accent5", "$accent4"] },
 	"&.enabled": {
-		color: "rgba($accent16)",
-		background: "rgba($accent7)",
+		color: "rgba($accent3)",
+		backgrounds: ["$accent13, 0.75", "$accent12", "$accent11"],
 		borderColor: "rgba($accent7)",
+	},
+
+	"&.outlined": {
+		border: "$$1dp solid $lowEmphasis",
+		_active: { borderColor: "rgba($accent7)" },
+	},
+
+	"&.filled-tonal, &.enabled": { backgrounds: ["$accent13, 0.75", "$accent12", "$accent11"] },
+	"&.filled-tonal.enabled": { backgrounds: ["$accent13", "$accent12", "$accent11"] },
+	"&.filled": {
+		color: "rgba($gray16)",
+		backgrounds: ["$accent7", "$accent5", "$accent4"],
+		"&.enabled": { backgrounds: ["$accent6", "$accent4", "$accent3"] },
 	},
 
 	"&.large": {
@@ -75,7 +80,7 @@ const buttonCss = css({
 		padding: "$$10dp $$30dp",
 	},
 
-	"&[disabled]": {
+	"&&&[disabled]": {
 		pointerEvents: "none",
 		color: "rgba($gray10)",
 

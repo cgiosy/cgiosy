@@ -38,6 +38,7 @@ const LinkTester = hoc(ButtonLink, () => ({ children: label() }));
 const IconButtonTester = hoc(IconButton, () => ({ icon: <Icon /> }));
 
 export const Buttons = tester(ButtonTester);
+export const EnabledButtons = tester(styled(ButtonTester, "enabled"));
 export const LargeButtons = tester(hoc(ButtonTester, large));
 export const Links = tester(LinkTester);
 export const LargeLinks = tester(hoc(LinkTester, large));
