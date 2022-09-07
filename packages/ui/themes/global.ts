@@ -51,7 +51,7 @@ const fontNamesToStr = (fontNames: string[]) => (
 
 export const { $css, css } = $$css({
 	$$_hover: (value) => ({ "&:hover, &:active, &:focus": value }),
-	$$_active: (value) => ({ "&:active, &:focus": value }),
+	$$_active: (value) => ({ "&:active": value }),
 
 	$$: (key) => (
 		/^[\d_]+dp$/.test(key) && `${Number(key.slice(0, -2).replace("_", ".")) / 16}rem`
