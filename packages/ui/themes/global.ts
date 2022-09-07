@@ -147,11 +147,4 @@ export const { $css, css } = $$css({
 
 	// https://twitter.com/hankchizljaw/status/1352270504577675265
 	"& [id]": { scrollMarginTop: "2ex" },
-
-
-	"& .pressable": {
-		cursor: "pointer",
-		_hover: { transform: "translateY(-$$1dp)" },
-		_active: { transform: "translateY($$1_5dp)" },
-	},
 }, { root: "body" });

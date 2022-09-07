@@ -15,6 +15,8 @@ const tester = (C: Component<unknown>) => {
 		<ThemeTester className={gap}>
 			<C />
 			<C className="filled" />
+			<C className="checked" />
+			<C className="filled checked" />
 		</ThemeTester>
 	);
 	return Tester;
