@@ -55,7 +55,6 @@ export const { $css, css } = $$css({
 
 	$$: (key) => (
 		/^[\d_]+dp$/.test(key) && `${Number(key.slice(0, -2).replace("_", ".")) / 16}rem`
-		|| /^accent\d+$/.test(key) && `rgba(${okhsl(260, 13, Number(key.slice(6)))})`
 	),
 
 	$$userSelect: (value) => ({
