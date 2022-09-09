@@ -50,7 +50,8 @@ const fontNamesToStr = (fontNames: string[]) => (
 );
 
 export const { $css, css } = $$css({
-	$$_hover: (value) => ({ "&:hover, &:active, &:focus": value }),
+	$$_hover: (value) => ({ "&:hover, &:focus, &:active": value }),
+	$$_focus: (value) => ({ "&:focus": value }),
 	$$_active: (value) => ({ "&:active": value }),
 
 	$$: (key) => (
