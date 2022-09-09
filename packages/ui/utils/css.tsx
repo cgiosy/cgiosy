@@ -26,6 +26,5 @@ export const cls = (arr: unknown[]) => (
 	arr
 		.flat(Infinity)
 		.filter(Boolean)
-		.sort()
 		.join(" ")
 );
