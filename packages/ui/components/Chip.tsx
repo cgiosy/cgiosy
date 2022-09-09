@@ -1,5 +1,14 @@
 import { css } from "../themes";
-import { styled } from "../utils";
+import { Component, cls, hoc, styled } from "../utils";
+
+type Icon = Component<{ className: string }>;
+
+type ChipProps = {
+	[K: string]: unknown,
+	leading?: Icon,
+	trailing?: Icon,
+	children?: JSX.Element,
+};
 
 const chipCss = css({
 	$$lightness: ([l0, l1, l2]) => ({
@@ -17,7 +26,7 @@ const chipCss = css({
 	fontWeight: 500,
 	lineHeight: "$$18dp",
 	border: "$$1dp solid $lowEmphasis",
-	borderRadius: "$$9dp",
+	borderRadius: "$$8dp",
 	padding: "$$6dp $$15dp",
 
 	cursor: "pointer",
@@ -27,31 +36,32 @@ const chipCss = css({
 	color: "$highEmphasis",
 	lightness: ["$background, 0.75", "$gray13", "$gray12"],
 
-	"& > svg": {
+	"& > svg": { fill: "currentColor" },
+	"&.leading > svg:first-child": {
 		square: "$$18dp",
-		fill: "currentColor",
 		margin: "0 $$8dp 0 -$$3dp",
-
-		"&.trailing": {
-			margin: "-$$4dp -$$10dp -$$4dp $$6dp",
-			square: "$$26dp",
-			padding: "$$4dp",
-			borderRadius: "50%",
-			transitions: [100, ["background"]],
-			lightness: ["$color, 0", "$color, 0.25", "$color, 0.375"],
-		},
-
-		"& [opacity]": {
-			opacity: 0,
-			transition: "opacity 0.2s linear -0.1s",
-		},
+	},
+	"&.trailing > svg:last-child": {
+		margin: "-$$4dp -$$10dp -$$4dp $$6dp",
+		square: "$$26dp",
+		padding: "$$4dp",
+		borderRadius: "50%",
+		transitions: [100, ["background"]],
+		lightness: ["$color, 0", "$color, 0.25", "$color, 0.375"],
+	},
+	"& > svg [opacity]": {
+		opacity: 0,
+		transition: "opacity 0.2s linear -0.1s",
 	},
 	"&.enabled > svg [opacity]": { opacity: 1 },
 
 	// Priority: icon < filled
 	"&.icon": {
-		padding: "$$8dp",
-		"& > svg": { margin: 0 },
+		padding: "$$6dp",
+		"& > svg": {
+			square: "$$18dp",
+			margin: 0,
+		},
 	},
 
 	"&.enabled": {
@@ -70,9 +80,16 @@ const chipCss = css({
 	},
 });
 
-const Chip = styled("button", chipCss);
+const useIcons = ({ className, leading, trailing, children }: ChipProps) => ({
+	className: cls([className, leading && "leading", trailing && "trailing"]),
+	children: <>{leading}{children}{trailing}</>,
+	leading: undefined,
+	trailing: undefined,
+});
 
-export const ChipLink = styled("a", chipCss);
+const Chip = hoc(styled("button", chipCss), useIcons);
+
+export const ChipLink = hoc(styled("a", chipCss), useIcons);
 
 export const IconChip = styled(Chip, "icon");
 
