@@ -49,7 +49,7 @@ const textInputCss = css({
 	[`.${textLabelCss}[disabled] > &`]: { borderColor: "rgba($gray10)" } as CSSObject as any,
 
 	"&&": {
-		_active: {
+		_focus: {
 			padding: "calc($paddingY - $$1_5dp) calc($paddingX - $$1_5dp)",
 			borderWidth: "$$2_5dp",
 			borderColor: "rgba($accent7)",
