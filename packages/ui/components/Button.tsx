@@ -91,7 +91,10 @@ const buttonCss = css({
 	},
 });
 
-const useIcon = ({ icon, children }: ButtonProps) => ({ children: <>{icon}{children}</> });
+const useIcon = ({ children, icon }: ButtonProps) => ({
+	children: <>{icon}{children}</>,
+	icon: undefined,
+});
 
 const Button = hoc(styled("button", buttonCss), useIcon);
 

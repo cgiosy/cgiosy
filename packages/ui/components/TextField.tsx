@@ -94,6 +94,7 @@ const TextField = hoc(
 				<div className={textPlaceholderCss}>{children}</div>
 			</>
 		),
+		placeholder: undefined,
 	}),
 );
 
