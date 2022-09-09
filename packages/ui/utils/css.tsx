@@ -6,18 +6,18 @@ export const styled = <Props, >(
 	component: Component<Props>,
 	obj: string | string[] | CSSObject,
 ) => {
-	const className = (
+	const classNames = (
 		typeof obj === "string"
 			? obj
 			: Array.isArray(obj)
 				? obj.join(" ")
 				: css(obj)
 	);
-	return hoc(component, (props) => ({
+	return hoc(component, ({ className }) => ({
 		className: (
-			"className" in props
-				? `${className} ${props.className}`
-				: className
+			className
+				? `${classNames} ${className}`
+				: classNames
 		),
 	}));
 };
