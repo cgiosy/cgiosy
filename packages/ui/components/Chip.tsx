@@ -1,13 +1,11 @@
 import { css } from "../themes";
 import { Component, cls, hoc, styled } from "../utils";
 
-type Icon = Component<{ className: string }>;
-
 type ChipProps = {
 	[K: string]: unknown,
-	leading?: Icon,
-	trailing?: Icon,
 	children?: JSX.Element,
+	leading?: JSX.Element,
+	trailing?: JSX.Element,
 };
 
 const chipCss = css({
@@ -80,7 +78,7 @@ const chipCss = css({
 	},
 });
 
-const useIcons = ({ className, leading, trailing, children }: ChipProps) => ({
+const useIcons = ({ children, className, leading, trailing }: ChipProps) => ({
 	className: cls([className, leading && "leading", trailing && "trailing"]),
 	children: <>{leading}{children}{trailing}</>,
 	leading: undefined,
