@@ -1,12 +1,16 @@
 import { CSSObject } from "ddcss";
 import { css } from "../themes";
-import { hoc, styled } from "../utils";
+import { cls, hoc, styled } from "../utils";
 
-type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+interface InputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+	leading?: JSX.Element,
+	trailing?: JSX.Element,
+}
 
 const textLabelCss = css({
-	$paddingY: "$$12dp",
-	$paddingX: "$$16dp",
+	$paddingY: "$$18dp",
+	$paddingL: "$$18dp",
+	$paddingR: "$$18dp",
 	fontSize: "$$16dp",
 
 	display: "block",
@@ -18,17 +22,32 @@ const textLabelCss = css({
 		opacity: 0.75,
 		color: "rgba($gray10)",
 	},
+
+	"& > svg": {
+		fill: "currentColor",
+		position: "absolute",
+	},
+
+	"&.leading": { $paddingL: "$$58dp" },
+	"&.leading > svg:first-child": {
+		top: "calc(50% - $$12dp)",
+		left: "$$18dp",
+	 },
 });
 
+const pad = (type: "Y" | "L" | "R", dp: string) => `calc($padding${type} - ${dp})`;
 const textInputCss = css({
+	$$paddings: (dp) => ({ padding: `${pad("Y", dp)} ${pad("R", dp)} ${pad("Y", dp)} ${pad("L", dp)}` }),
+
 	display: "block",
 	contain: "size",
 	width: "100%",
-	padding: "$paddingY $paddingX",
+
 	background: "rgba($background)",
 	caretColor: "rgba($accent7)",
-	border: "$$1dp solid $mediumEmphasis",
+	border: "$$1dp solid $lowEmphasis",
 	borderRadius: "$$4dp",
+	paddings: "$$1dp",
 	lineHeight: "$$20dp",
 	cursor: "text",
 	transitions: [50, ["padding", "border-width", "border-color", "box-shadow"]],
@@ -50,8 +69,8 @@ const textInputCss = css({
 
 	"&&": {
 		_focus: {
-			padding: "calc($paddingY - $$1_5dp) calc($paddingX - $$1_5dp)",
-			borderWidth: "$$2_5dp",
+			paddings: "$$3dp",
+			borderWidth: "$$3dp",
 			borderColor: "rgba($accent7)",
 			outline: "none",
 		},
@@ -65,10 +84,11 @@ const textInputCss = css({
 
 const textPlaceholderCss = css({
 	position: "absolute",
-	top: "calc(50% - $$8dp)",
-	left: "calc($paddingX - $$8dp + 1px)", // cursor 1px
+	top: "calc(50% - $$8dp)", // padding 8dp
+	left: "calc($paddingL + $$2dp - $$8dp)", // additional margin 2dp
 	padding: "0 $$8dp",
 	lineHeight: "$$16dp",
+	color: "$mediumEmphasis",
 	background: "rgba($background)",
 	transition: "color 0.1s linear, transform 0.15s cubic-bezier(0.65,0.05,0.36,1)",
 	transformOrigin: "top left",
@@ -76,7 +96,10 @@ const textPlaceholderCss = css({
 	cursor: "text",
 
 	[`.${textInputCss}:focus + &`]: { color: "rgba($accent6)" } as CSSObject as any,
-	[`.${textInputCss}:focus + &, .${textInputCss}:not(:placeholder-shown) + &`]: { transform: "translateY(calc(-50% - $paddingY)) scale(0.75)" } as CSSObject as any,
+	[`.${textInputCss}:focus + &, .${textInputCss}:not(:placeholder-shown) + &`]: {
+		transform: "translateY(calc(-50% - $paddingY)) scale(0.75)",
+		[`.${textLabelCss}.leading > &`]: { transform: "translateX(calc($$18dp - $paddingL)) translateY(calc(-50% - $paddingY)) scale(0.75)" } as CSSObject as any,
+	} as CSSObject as any,
 
 	[`.${textInputCss}.error + &`]: { color: "rgba($error6)" } as CSSObject as any,
 });
@@ -86,15 +109,20 @@ const TextInput = styled("input", textInputCss);
 const TextField = hoc(
 	styled("label", textLabelCss),
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	({ children, placeholder, ...props }: InputProps) => ({
+	({ children, className, placeholder, leading, trailing, ...props }: InputProps) => ({
 	// There exists zero width space in the placeholder.
 		children: (
 			<>
-				<TextInput type="text" placeholder="​" spellCheck={false} {...props} />
+				{leading}
+				<TextInput type="text" placeholder="​" spellCheck={false} className={className} {...props} />
 				<div className={textPlaceholderCss}>{children}</div>
+				{trailing}
 			</>
 		),
+		className: cls([leading && "leading", trailing && "trailing"]),
 		placeholder: undefined,
+		leading: undefined,
+		trailing: undefined,
 	}),
 );
 
