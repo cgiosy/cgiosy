@@ -12,7 +12,7 @@
 		"storybook": "start-storybook -p 9001"
 	},
 	"dependencies": {
-		"ddcss": "^0.6.0",
+		"ddcss": "^0.7.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},
@@ -20,18 +20,18 @@
 		"@cgiosy/env-react": "workspace:*",
 		"@cgiosy/utils": "workspace:*",
 		"@mdx-js/react": "^2.1.3",
-		"@storybook/addon-essentials": "^6.5.10",
+		"@storybook/addon-essentials": "^6.5.12",
 		"@storybook/addon-knobs": "^6.4.0",
-		"@storybook/builder-webpack5": "^6.5.10",
-		"@storybook/manager-webpack5": "^6.5.10",
-		"@storybook/react": "^6.5.10",
-		"@types/react": "^18.0.18",
+		"@storybook/builder-webpack5": "^6.5.12",
+		"@storybook/manager-webpack5": "^6.5.12",
+		"@storybook/react": "^6.5.12",
+		"@types/react": "^18.0.20",
 		"@types/react-dom": "^18.0.6",
-		"@typescript-eslint/eslint-plugin": "^5.36.2",
-		"@typescript-eslint/parser": "^5.36.2",
-		"eslint": "^8.23.0",
-		"eslint-plugin-react": "^7.31.7",
-		"typescript": "^4.8.2",
+		"@typescript-eslint/eslint-plugin": "^5.38.0",
+		"@typescript-eslint/parser": "^5.38.0",
+		"eslint": "^8.23.1",
+		"eslint-plugin-react": "^7.31.8",
+		"typescript": "^4.8.3",
 		"webpack": "^5.74.0"
 	}
 }
