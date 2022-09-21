@@ -1,5 +1,5 @@
 import { css } from "../themes";
-import { Component, cls, hoc, styled } from "../utils";
+import { cls, hoc, styled } from "../utils";
 
 type ChipProps = {
 	[K: string]: unknown,
@@ -15,17 +15,17 @@ const chipCss = css({
 		_active: { background: `rgba(${l2})` },
 	}),
 
-	fontSize: "$$14dp",
+	fontSize: "14dp",
 
 	display: "inline-flex",
 	alignItems: "center",
 	justifyContent: "center",
 	textDecoration: "none",
 	fontWeight: 500,
-	lineHeight: "$$18dp",
-	border: "$$1dp solid $lowEmphasis",
-	borderRadius: "$$8dp",
-	padding: "$$6dp $$15dp",
+	lineHeight: "18dp",
+	border: "1dp solid $lowEmphasis",
+	borderRadius: "8dp",
+	padding: "6dp 15dp",
 
 	cursor: "pointer",
 	userSelect: "none",
@@ -36,13 +36,13 @@ const chipCss = css({
 
 	"& > svg": { fill: "currentColor" },
 	"&.leading > svg:first-child": {
-		square: "$$18dp",
-		margin: "0 $$8dp 0 -$$3dp",
+		square: "18dp",
+		margin: "0 8dp 0 -3dp",
 	},
 	"&.trailing > svg:last-child": {
-		margin: "-$$4dp -$$10dp -$$4dp $$6dp",
-		square: "$$26dp",
-		padding: "$$4dp",
+		margin: "-4dp -10dp -4dp 6dp",
+		square: "26dp",
+		padding: "4dp",
 		borderRadius: "50%",
 		transitions: [100, ["background"]],
 		lightness: ["$color, 0", "$color, 0.25", "$color, 0.375"],
@@ -55,9 +55,9 @@ const chipCss = css({
 
 	// Priority: icon < filled
 	"&.icon": {
-		padding: "$$6dp",
+		padding: "6dp",
 		"& > svg": {
-			square: "$$18dp",
+			square: "18dp",
 			margin: 0,
 		},
 	},

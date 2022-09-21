@@ -9,7 +9,7 @@ const label = () => text("Button label", "Thumb Up");
 
 const large = (props: PlainObject) => ({ className: cls([props.className, "large"]) });
 
-const gap = css({ "&, & > *": { margin: "$$16dp" } });
+const gap = css({ "&, & > *": { margin: "16dp" } });
 
 const tester = (C: Component<{ className: string; }>) => {
 	const Tester = () => (

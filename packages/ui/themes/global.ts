@@ -55,7 +55,7 @@ export const { $css, css } = $$css({
 	$$_active: (value) => ({ "&:active": value }),
 
 	$$: (key) => (
-		/^[\d_]+dp$/.test(key) && `${Number(key.slice(0, -2).replace("_", ".")) / 16}rem`
+		/^[\d.]+dp$/.test(key) && `${Number(key.slice(0, -2)) / 16}rem`
 	),
 
 	$$userSelect: (value) => ({

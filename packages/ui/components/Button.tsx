@@ -14,33 +14,29 @@ const buttonCss = css({
 		_active: { backgroundColor: `rgba(${l2})` },
 	}),
 
-	$$padding: (value) => ({
-		padding: value,
-		"&.outlined": { padding: value.replace(/\d+/g, (n: string) => Number(n) - 1) },
-	}),
+	fontSize: "16dp",
 
-	fontSize: "$$16dp",
-
-	display: "inline-flex",
+	display: "inline-grid",
+	grid: "auto / auto-flow",
+	gap: "8dp",
 	alignItems: "center",
 	justifyContent: "center",
 	textDecoration: "none",
 	fontWeight: 500,
 	border: 0,
 	borderRadius: "9999em",
-	lineHeight: "$$20dp",
-	padding: "$$9dp $$24dp",
+	padding: "0 20dp",
+	height: "40dp",
 
 	color: "rgba($accent6)",
 	backgrounds: ["$background, 0.75", "$accent13", "$accent12"],
 	cursor: "pointer",
 	userSelect: "none",
-	transitions: [100, ["color", "background-color", "border-color", "transform"]],
+	transitions: [100, ["color", "background-color", "box-shadow", "transform"]],
 
 	"& > svg": {
-		square: "$$20dp",
+		square: "24dp",
 		fill: "currentColor",
-		margin: "0 $$8dp 0 -$$2dp",
 
 		"& [opacity]": {
 			opacity: 0,
@@ -50,7 +46,7 @@ const buttonCss = css({
 	"&.enabled > svg [opacity]": { opacity: 1 },
 
 	"&.icon": {
-		padding: "$$10dp",
+		padding: "10dp",
 		color: "rgba($gray3)",
 		"& > svg": { margin: 0 },
 	},
@@ -62,8 +58,8 @@ const buttonCss = css({
 	},
 
 	"&.outlined": {
-		border: "$$1dp solid $lowEmphasis",
-		_active: { borderColor: "rgba($accent7)" },
+		boxShadow: "inset 0 0 0 1dp $lowEmphasis",
+		_active: { boxShadow: "inset 0 0 0 1dp rgba($accent7)" },
 	},
 
 	"&.filled-tonal, &.enabled": { backgrounds: ["$accent13, 0.75", "$accent12", "$accent11"] },
@@ -77,7 +73,8 @@ const buttonCss = css({
 	"&.large": {
 		display: "flex",
 		width: "100%",
-		padding: "$$10dp $$30dp",
+		padding: "0 24dp",
+		height: "44dp",
 	},
 
 	"&&&[disabled]": {

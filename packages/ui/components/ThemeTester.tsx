@@ -2,7 +2,7 @@ import { css, lightTheme, darkTheme, tonalLightTheme, tonalDarkTheme } from "../
 import { cls } from "../utils";
 
 const testerCss = css({
-	padding: "$$24dp $$16dp",
+	padding: "24dp 16dp",
 	overflow: "scroll",
 });
 
