@@ -1,5 +1,6 @@
 import $$css from "ddcss";
 import okhsl from "@cgiosy/utils/okhsl";
+import typo from "./typo";
 
 type DefineColorsArgs = {
 	prefix: string;
@@ -45,9 +46,6 @@ export const calcErrorColor = (lightness: number, saturation: number): [number, 
 	lightness,
 ];
 
-const fontNamesToStr = (fontNames: string[]) => (
-	fontNames.map((fontName) => `"${fontName}"`).join(",")
-);
 
 export const { $css, css } = $$css({
 	$$_hover: (value) => ({ "&:hover, &:focus, &:active": value }),
@@ -57,6 +55,8 @@ export const { $css, css } = $$css({
 	$$: (key) => (
 		/^[\d.]+dp$/.test(key) && `${Number(key.slice(0, -2)) / 16}rem`
 	),
+
+	...typo,
 
 	$$userSelect: (value) => ({
 		WebkitUserDrag: value,
@@ -73,32 +73,6 @@ export const { $css, css } = $$css({
 		width: size,
 		height: size,
 	}),
-
-	$mono: fontNamesToStr([
-		"Menlo",
-		"Noto Sans Mono CJK KR",
-		"Monaco",
-		"Hack",
-		"D2Coding ligature",
-		"D2 Coding ligature",
-		"D2Coding",
-		"D2 Coding",
-		"Consolas",
-		"monospace",
-	]),
-	$sans: fontNamesToStr([
-		"Pretendard",
-		"Apple SD Gothic Neo",
-		"Noto Sans CJK KR",
-		"Noto Sans KR",
-		"본고딕",
-		"KoPubDotum",
-		"나눔바른고딕",
-		"NanumBarunGothic",
-		"나눔고딕",
-		"NanumGothic",
-		"sans-serif",
-	]),
 
 	WebkitTapHighlightColor: "transparent",
 
